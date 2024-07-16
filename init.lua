@@ -264,6 +264,8 @@ require('lazy').setup({
   --
   -- close brackets automatically
   { 'windwp/nvim-autopairs', opts = {} },
+  --  This is equivalent to:
+  --    require('Comment').setup({})
 
   -- better navigation for tmux
   {
@@ -274,43 +276,6 @@ require('lazy').setup({
       vim.keymap.set('n', '<C-l>', '<cmd> TmuxNavigateRight<CR>')
       vim.keymap.set('n', '<C-j>', '<cmd> TmuxNavigateDown<CR>')
       vim.keymap.set('n', '<C-k>', '<cmd> TmuxNavigateUp<CR>')
-    end,
-  },
-
-  {
-    'ThePrimeagen/harpoon',
-    branch = 'harpoon2',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      local harpoon = require 'harpoon'
-      harpoon:setup()
-      vim.keymap.set('n', '<leader>a', function()
-        harpoon:list():add()
-      end)
-      vim.keymap.set('n', '<C-e>', function()
-        harpoon.ui:toggle_quick_menu(harpoon:list())
-      end)
-
-      vim.keymap.set('n', '<C-z>', function()
-        harpoon:list():select(1)
-      end)
-      vim.keymap.set('n', '<C-x>', function()
-        harpoon:list():select(2)
-      end)
-      vim.keymap.set('n', '<C-c>', function()
-        harpoon:list():select(3)
-      end)
-      vim.keymap.set('n', '<C-v>', function()
-        harpoon:list():select(4)
-      end)
-
-      -- Toggle previous & next buffers stored within Harpoon list
-      vim.keymap.set('n', '<C-S-P>', function()
-        harpoon:list():prev()
-      end)
-      vim.keymap.set('n', '<C-S-N>', function()
-        harpoon:list():next()
-      end)
     end,
   },
 
@@ -726,6 +691,7 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         gopls = {},
+        clangd = {},
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -1047,7 +1013,11 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.autopairs',
+  -- require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
@@ -1057,12 +1027,17 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
+<<<<<<< HEAD
   -- { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
   -- you can continue same window with `<space>sr` which resumes last telescope search
+=======
+  --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
+  { import = 'custom.plugins' },
+>>>>>>> dc4ac0e (kickstart rebase)
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
