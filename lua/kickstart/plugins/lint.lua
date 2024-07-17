@@ -8,6 +8,13 @@ return {
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
         go = { 'golangcilint' },
+        java = { 'checkstyle' },
+        typescript = { 'eslint_d' },
+      }
+
+      lint.linters.checkstyle.args = {
+        '-c',
+        '/Users/bortal/work/opp/payout-order-information-service/payout-order-information-service-server/checkstyle.xml',
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
