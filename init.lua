@@ -199,10 +199,10 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
@@ -280,8 +280,6 @@ require('lazy').setup({
   --
   -- close brackets automatically
   { 'windwp/nvim-autopairs', opts = {} },
-  --  This is equivalent to:
-  --    require('Comment').setup({})
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
@@ -290,43 +288,6 @@ require('lazy').setup({
   { 'windwp/nvim-autopairs', opts = {} },
 
   { 'mfussenegger/nvim-jdtls' },
-
-  {
-    'stevearc/oil.nvim',
-    opts = {},
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      require('oil').setup {
-        columns = { 'icon' },
-        view_options = {
-          show_hidden = true,
-        },
-      }
-
-      -- Open parent directory in current window
-      vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-
-      -- Open parent directory in floating window
-      vim.keymap.set('n', '<leader>-', require('oil').toggle_float)
-    end,
-  },
-
-  {
-    'christoomey/vim-tmux-navigator',
-    lazy = false,
-    config = function()
-      vim.keymap.set('n', '<C-h>', '<cmd> TmuxNavigateLeft<CR>')
-      vim.keymap.set('n', '<C-l>', '<cmd> TmuxNavigateRight<CR>')
-      vim.keymap.set('n', '<C-j>', '<cmd> TmuxNavigateDown<CR>')
-      vim.keymap.set('n', '<C-k>', '<cmd> TmuxNavigateUp<CR>')
-    end,
-  },
-
-  {
-    'sourcegraph/sg.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope.nvim' },
-    opts = {},
-  },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`.
