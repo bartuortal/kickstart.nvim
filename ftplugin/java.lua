@@ -60,7 +60,7 @@ local config = {
     java = {
       format = {
         settings = {
-          url = '/Users/bortal/work/opp/payout-order-information-service/payout-order-information-service-server/checkstyle.xml',
+          url = '/Users/bortal/work/opp/java_OIS_formatter.xml',
         },
       },
     },
