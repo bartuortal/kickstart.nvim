@@ -287,8 +287,6 @@ require('lazy').setup({
   -- close brackets automatically
   { 'windwp/nvim-autopairs', opts = {} },
 
-  { 'mfussenegger/nvim-jdtls' },
-
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`.
   --
@@ -1028,6 +1026,7 @@ require('lazy').setup({
   -- you can continue same window with `<space>sr` which resumes last telescope search
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   { import = 'custom.plugins' },
+  { import = 'custom.local' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
