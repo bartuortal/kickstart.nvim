@@ -1,17 +1,15 @@
-return {
-  'cbochs/grapple.nvim',
-  opts = {
-    scope = 'git', -- also try out "git_branch"
-  },
-  event = { 'BufReadPost', 'BufNewFile' },
-  cmd = 'Grapple',
-  keys = {
-    { '<leader>a', '<cmd>Grapple toggle<cr>', desc = 'Grapple toggle tag' },
-    { '<c-e>', '<cmd>Grapple toggle_tags<cr>', desc = 'Grapple open tags window' },
+-- grapple.nvim
+-- https://github.com/cbochs/grapple.nvim
 
-    { '<c-z>', '<cmd>Grapple select index=1<cr>', desc = 'Select first tag' },
-    { '<c-x>', '<cmd>Grapple select index=2<cr>', desc = 'Select second tag' },
-    { '<c-c>', '<cmd>Grapple select index=3<cr>', desc = 'Select third tag' },
-    { '<c-v>', '<cmd>Grapple select index=4<cr>', desc = 'Select fourth tag' },
-  },
+vim.pack.add { 'https://github.com/cbochs/grapple.nvim' }
+require('grapple').setup {
+  scope = 'git', -- also try out "git_branch"
 }
+
+vim.keymap.set('n', '<leader>a', '<cmd>Grapple toggle<CR>', { desc = 'Grapple toggle tag' })
+vim.keymap.set('n', '<C-e>', '<cmd>Grapple toggle_tags<CR>', { desc = 'Grapple open tags window' })
+
+vim.keymap.set('n', '<C-z>', '<cmd>Grapple select index=1<CR>', { desc = 'Grapple select first tag' })
+vim.keymap.set('n', '<C-x>', '<cmd>Grapple select index=2<CR>', { desc = 'Grapple select second tag' })
+vim.keymap.set('n', '<C-c>', '<cmd>Grapple select index=3<CR>', { desc = 'Grapple select third tag' })
+vim.keymap.set('n', '<C-v>', '<cmd>Grapple select index=4<CR>', { desc = 'Grapple select fourth tag' })

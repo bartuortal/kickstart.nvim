@@ -981,11 +981,9 @@ do
   -- require 'kickstart.plugins.neo-tree'
   require 'kickstart.plugins.gitsigns' -- adds gitsigns recommended keymaps
 
-  -- NOTE: You can add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --
-  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- TODO: custom plugin files still use lazy.nvim spec format and need to be migrated to vim.pack.
-  --       Loading the directory currently does nothing (each file just returns a table that gets discarded).
+  -- Custom plugins: each file in `lua/custom/plugins/` is `require`d by the
+  -- loader, so plugins must call `vim.pack.add` and setup directly (not return
+  -- a lazy.nvim spec, which would be silently discarded).
   require 'custom.plugins'
 end
 
